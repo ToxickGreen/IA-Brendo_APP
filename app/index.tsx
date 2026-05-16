@@ -1,11 +1,13 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { useRouter } from "expo-router";
 
 export default function Home() {
+  const router = useRouter();
+
   return (
     <View style={styles.container}>
       
-      {/* Grupo de cima: Logo e Textos */}
       <View style={styles.content}>
         <Ionicons name="card" size={84} color="#7B61FF" />
         <Text style={styles.titulo}>DevCard</Text>
@@ -16,9 +18,8 @@ export default function Home() {
         </View>
       </View>
 
-      {/* Grupo de baixo: Botão */}
       <View style={styles.footer}>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={() => router.push("/cadastro")}>
           <Text style={styles.buttonText}>Criar meu cartão</Text>
         </TouchableOpacity>
       </View>
@@ -30,8 +31,8 @@ export default function Home() {
 const styles = StyleSheet.create({
   container: { 
     flex: 1, 
-    backgroundColor: '#fff',
-    paddingVertical: 50, 
+    backgroundColor: '#f1f1f1',
+    padding: 32, 
   },
   content: {
     flex: 1, 
@@ -39,8 +40,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   footer: {
-    paddingHorizontal: 20,
-    width: '100%',
     alignItems: 'center',
   },
   titulo: { 
@@ -53,14 +52,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   textin: {
-    color: "#979797",
+    color: "#696969",
     fontSize: 16,
   },
   button: {
     backgroundColor: "#7B61FF",
     padding: 20,
-    width: '90%',
-    maxWidth: 284,
+    width: '100%',
     borderRadius: 16,
     alignItems: "center",
   },
